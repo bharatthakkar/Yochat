@@ -4,6 +4,10 @@
     tools:context="in.imyat.yochat.MainActivity" >
 
     <item
+        android:id="@+id/action_edit_friends"
+        android:title="@string/menu_edit_friends_label">
+    </item>
+    <item
         android:id="@+id/action_logout"
         android:title="@string/menu_logout_label">
     </item>
