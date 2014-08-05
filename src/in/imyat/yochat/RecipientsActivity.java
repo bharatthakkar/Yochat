@@ -193,7 +193,7 @@ public class RecipientsActivity extends ListActivity {
 				if (e == null) {
 					// success!
 					Toast.makeText(RecipientsActivity.this,
-							R.string.success_message, Toast.LENGTH_LONG);
+							R.string.success_message, Toast.LENGTH_LONG).show();
 				} else {
 					AlertDialog.Builder builder = new AlertDialog.Builder(
 							RecipientsActivity.this);
