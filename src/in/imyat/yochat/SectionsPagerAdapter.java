@@ -26,13 +26,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 		// Return a PlaceholderFragment (defined as a static inner class
 		// below).
 		switch (position) {
-			case 0:
-				return new InboxFragment();
-			case 1:
-				return new FriendsFragment();
+		case 0:
+			return new InboxFragment();
+		case 1:
+			return new FriendsFragment();
 		}
 		return null;
-		
+
 	}
 
 	@Override
@@ -51,5 +51,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 			return mContext.getString(R.string.title_section2).toUpperCase(l);
 		}
 		return null;
+	}
+
+	public int getIcon(int position) {
+		switch (position) {
+		case 0:
+			return R.drawable.ic_tab_inbox;
+		case 1:
+			return R.drawable.ic_tab_friends;
+		}
+		return R.drawable.ic_tab_inbox;
+
 	}
 }
