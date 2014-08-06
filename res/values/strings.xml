@@ -14,7 +14,7 @@
     <string name="title_activity_sign_up">SIGN UP</string>
     <string name="email_hint">Email</string>
     <string name="sign_up_button_label">SIGN UP</string>
-    <string name="sign_up_button__cancel_label">CANCEL</string>
+    <string name="sign_up_button__cancel_label">""Cancel"</string>
     <string name="signup_error_message">Please make sure you enter a Username, Password and Email Address!</string>
     <string name="signup_error_title">Oops!</string>
     <string name="login_error_message">Please make sure you enter a Username and Password!</string>
@@ -52,5 +52,6 @@
     <string name="button_divider">Button Divider</string>
     <string name="content_desc_message_icon">Message icon</string>
     <string name="avatar">Avatar</string>
+    <string name="avatar_check">Check Avatar</string>
 
 </resources>

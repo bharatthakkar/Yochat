@@ -31,7 +31,6 @@
             android:layout_toLeftOf="@+id/messageIcon"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/message_vertical_padding"
-            android:text="Test Name"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="16sp" />
 
@@ -44,7 +43,6 @@
             android:layout_toLeftOf="@+id/messageIcon"
             android:paddingBottom="@dimen/message_vertical_padding"
             android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:text="Test Name"
             android:textColor="@color/light_grey"
             android:textSize="12sp" />
     </RelativeLayout>
