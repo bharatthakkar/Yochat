@@ -1,4 +1,4 @@
-package in.imyat.yochat;
+package in.iamyat.yochat.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

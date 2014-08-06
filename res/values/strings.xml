@@ -50,5 +50,6 @@
     <string name="background_description">Yochat Background Image</string>
     <string name="subtitle">A Yatin Taluja Project</string>
     <string name="button_divider">Button Divider</string>
+    <string name="content_desc_message_icon">Message icon</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package in.imyat.yochat;
+package in.iamyat.yochat.utils;
 
 public final class ParseConstants {
 	// Class names

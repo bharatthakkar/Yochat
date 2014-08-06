@@ -1,4 +1,10 @@
-package in.imyat.yochat;
+package in.iamyat.yochat.adapters;
+
+import in.iamyat.yochat.ui.FriendsFragment;
+import in.iamyat.yochat.ui.InboxFragment;
+import in.imyat.yochat.R;
+import in.imyat.yochat.R.drawable;
+import in.imyat.yochat.R.string;
 
 import java.util.Locale;
 

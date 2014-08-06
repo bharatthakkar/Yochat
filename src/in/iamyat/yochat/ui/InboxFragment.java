@@ -1,4 +1,8 @@
-package in.imyat.yochat;
+package in.iamyat.yochat.ui;
+
+import in.iamyat.yochat.adapters.MessageAdapter;
+import in.iamyat.yochat.utils.ParseConstants;
+import in.imyat.yochat.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +11,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +26,23 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 public class InboxFragment extends ListFragment {
+
 	protected List<ParseObject> mMessages;
+	protected SwipeRefreshLayout mSwipeRefreshLayout;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_inbox, container,
 				false);
+
+		mSwipeRefreshLayout = (SwipeRefreshLayout) rootView
+				.findViewById(R.id.swipeRefreshLayout);
+		mSwipeRefreshLayout.setOnRefreshListener(mOnRefreshListener);
+		mSwipeRefreshLayout.setColorScheme(R.color.swipeRefresh1,
+				R.color.swipeRefresh2, R.color.swipeRefresh3,
+				R.color.swipeRefresh4);
+
 		return rootView;
 	}
 
@@ -35,6 +51,10 @@ public class InboxFragment extends ListFragment {
 		super.onResume();
 		getActivity().setProgressBarIndeterminateVisibility(true);
 
+		retrieveMessages();
+	}
+
+	private void retrieveMessages() {
 		ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
 				ParseConstants.CLASS_MESSAGES);
 		query.whereEqualTo(ParseConstants.KEY_RECIPIENT_IDS, ParseUser
@@ -45,6 +65,10 @@ public class InboxFragment extends ListFragment {
 			@Override
 			public void done(List<ParseObject> messages, ParseException e) {
 				getActivity().setProgressBarIndeterminateVisibility(false);
+
+				if (mSwipeRefreshLayout.isRefreshing()) {
+					mSwipeRefreshLayout.setRefreshing(false);
+				}
 
 				if (e == null) {
 					// we found messages!
@@ -94,20 +118,28 @@ public class InboxFragment extends ListFragment {
 
 		// Delete it!
 		List<String> ids = message.getList(ParseConstants.KEY_RECIPIENT_IDS);
-		
-		if(ids.size() == 1){
-			//last recipient - delete the whole thing
+
+		if (ids.size() == 1) {
+			// last recipient - delete the whole thing
 			message.deleteInBackground();
-		}else {
-			//remove the recipient and save
+
+		} else {
+			// remove the recipient and save
 			ids.remove(ParseUser.getCurrentUser().getObjectId());
-			
-			ArrayList<String> idsToRemove =  new ArrayList<String>();
+
+			ArrayList<String> idsToRemove = new ArrayList<String>();
 			idsToRemove.add(ParseUser.getCurrentUser().getObjectId());
-			
-			
+
 			message.removeAll(ParseConstants.KEY_RECIPIENT_IDS, idsToRemove);
 			message.saveInBackground();
 		}
 	}
+
+	protected OnRefreshListener mOnRefreshListener = new OnRefreshListener() {
+
+		@Override
+		public void onRefresh() {
+			retrieveMessages();
+		}
+	};
 }

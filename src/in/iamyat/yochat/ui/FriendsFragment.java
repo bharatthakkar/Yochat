@@ -1,4 +1,9 @@
-package in.imyat.yochat;
+package in.iamyat.yochat.ui;
+
+import in.iamyat.yochat.utils.ParseConstants;
+import in.imyat.yochat.R;
+import in.imyat.yochat.R.layout;
+import in.imyat.yochat.R.string;
 
 import java.util.List;
 

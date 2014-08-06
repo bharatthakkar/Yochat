@@ -1,4 +1,8 @@
-package in.imyat.yochat;
+package in.iamyat.yochat.ui;
+
+import in.imyat.yochat.R;
+import in.imyat.yochat.R.id;
+import in.imyat.yochat.R.layout;
 
 import java.util.Timer;
 import java.util.TimerTask;

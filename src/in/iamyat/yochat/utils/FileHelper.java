@@ -1,4 +1,4 @@
-package in.imyat.yochat;
+package in.iamyat.yochat.utils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
