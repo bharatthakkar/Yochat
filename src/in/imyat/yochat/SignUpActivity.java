@@ -20,19 +20,30 @@ public class SignUpActivity extends Activity {
 	protected EditText mEmail;
 	protected EditText mPassword;
 	protected Button mSignUpButton;
+	protected Button mCancelButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.activity_sign_up);
-		
+
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();
 
 		mUsername = (EditText) findViewById(R.id.usernameField);
 		mPassword = (EditText) findViewById(R.id.passwordField);
 		mEmail = (EditText) findViewById(R.id.emailField);
+
+		mCancelButton = (Button) findViewById(R.id.cancelButton);
+		mCancelButton.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+
 		mSignUpButton = (Button) findViewById(R.id.signupButton);
 		mSignUpButton.setOnClickListener(new View.OnClickListener() {
 
