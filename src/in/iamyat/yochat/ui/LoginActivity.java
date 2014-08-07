@@ -1,9 +1,7 @@
 package in.iamyat.yochat.ui;
 
+import in.iamyat.yochat.YochatApplication;
 import in.imyat.yochat.R;
-import in.imyat.yochat.R.id;
-import in.imyat.yochat.R.layout;
-import in.imyat.yochat.R.string;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -81,6 +79,9 @@ public class LoginActivity extends Activity {
 									setProgressBarIndeterminateVisibility(true);
 									if (e == null) {
 										// success!
+										YochatApplication
+												.updateParseInstallation(user);
+
 										Intent intent = new Intent(
 												LoginActivity.this,
 												MainActivity.class);

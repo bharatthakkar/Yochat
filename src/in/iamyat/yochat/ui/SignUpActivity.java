@@ -1,9 +1,7 @@
 package in.iamyat.yochat.ui;
 
+import in.iamyat.yochat.YochatApplication;
 import in.imyat.yochat.R;
-import in.imyat.yochat.R.id;
-import in.imyat.yochat.R.layout;
-import in.imyat.yochat.R.string;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -83,6 +81,10 @@ public class SignUpActivity extends Activity {
 							setProgressBarIndeterminateVisibility(false);
 							if (e == null) {
 								// Success!
+								YochatApplication
+										.updateParseInstallation(ParseUser
+												.getCurrentUser());
+
 								Intent intent = new Intent(SignUpActivity.this,
 										MainActivity.class);
 								intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

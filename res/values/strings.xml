@@ -53,5 +53,6 @@
     <string name="content_desc_message_icon">Message icon</string>
     <string name="avatar">Avatar</string>
     <string name="avatar_check">Check Avatar</string>
+    <string name="push_message">You have a new Yochat message from %s!</string>
 
 </resources>
